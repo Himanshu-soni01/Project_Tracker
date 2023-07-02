@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Update Project</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Update Project</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Update Project Details</h2>
+      <form method="POST">
+        {% csrf_token %}
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required>{{ project.1 }}</textarea><br><br>
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" value="{{ project.2 }}" required><br><br>
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" value="{{ project.3 }}" required><br><br>
+        <input type="file" id="resource" name="resource" value="{project.4}" /><br />
+        <button type="submit">Update</button>
+        <input type="submit" value="Update Project">
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p></p>
+  </footer>
+</body>
+
+</html>

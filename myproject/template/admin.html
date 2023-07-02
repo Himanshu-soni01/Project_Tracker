@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Admin Name</h1>
+      <nav>
+        <ul>
+          <li><a href="/CreateProject">Create Project</a></li>
+          <li><a href="/Users">Users</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Dashboard</h2>
+
+        <h3>Available Projects</h3>
+        <ul>
+          {% for detail in details %}
+          <h3><li>Project Name: {{ detail.0 }}</li></h3>
+          <li>Description: {{ detail.1 }}</li>
+          <li>Start Date: <span class="date">{{ detail.2 }}</span></li>
+          <li>End Date: <span class="date">{{ detail.3 }}</span></li>
+          <li>Resource: <a href="{% url 'download_file' detail.4 %}" download>Download</a></li>
+
+          <li><a href="{% url 'update_project' detail.0%}">Edit</a></li>
+
+          <br /><br />
+          {% endfor %}
+
+          <br /><br />
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p></p>
+    </footer>
+  </body>
+</html>

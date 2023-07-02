@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/login.css">
+    <title>User Login</title>
+</head>
+<body>
+    <main>
+        <section>
+            <h2>User Login</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <input type="submit" value="Login">
+
+                {% if error %}
+                <p class="error-message">{{ error }}</p>
+                {% endif %}
+            </form>
+            <p>Don't have an account? <a href="/usersignup">Register here</a></p>
+        </section>
+    </main>
+</body>
+</html>

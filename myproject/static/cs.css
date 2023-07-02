@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+header {
+    background-color: #006685;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+nav li {
+    margin-right: 20px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+nav a:hover {
+    background-color: #fff;
+    color: #8b3838;
+}
+main {
+    padding: 30px;
+}
+form label {
+    padding-left: 20px;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+form input[type="text"],
+form input[type="date"],
+form input[type="file"],
+form textarea,
+form select {
+    margin-left: 20%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 50%;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+form input[type="submit"] {
+    background-color: #835959;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+form input[type="submit"]:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+form input[type="submit"]{
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+}
+#selected-users {
+    margin-left: 20%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 50%;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 200px;
+    overflow-y: scroll;
+}
+.center-button {
+    text-align: center;
+}
+    
+#selected-users {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 200px;
+    overflow-y: scroll;
+}
+

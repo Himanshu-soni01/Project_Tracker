@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Create Project</title>
+  <link rel="stylesheet" href="\static\cs.css" />
+
+  <script>
+    function addUser() {
+      var select = document.getElementById("team-members");
+      var selectedUser = select.options[select.selectedIndex].text;
+
+      var selectedUsersContainer = document.getElementById("selected-users");
+      var newUserName = document.createElement("p");
+      newUserName.textContent = selectedUser;
+      selectedUsersContainer.appendChild(newUserName);
+
+      var hiddenInput = document.createElement("input");
+      hiddenInput.type = "hidden";
+      hiddenInput.name = "selected-user";
+      hiddenInput.value = selectedUser;
+      document.querySelector("form").appendChild(hiddenInput);
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>Admin Name</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Projects</a></li>
+        <li><a href="/userlogin">Users</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Add New Project</h2>
+      <form action="/CreateProject/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="project-name">Project Name:</label>
+        <input type="text" id="project-name" name="project-name" required />
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea>
+
+        <label for="start-date">Start Date:</label>
+        <input type="date" id="start-date" name="start-date" required />
+
+        <label for="end-date">End Date:</label>
+        <input type="date" id="end-date" name="end-date" required />
+        <br /><br />
+
+        <label for="resources">Resources:</label>
+        <input type="file" name="resources" required /><br /><br /><br />
+
+        <label for="team-members">Team Members:</label>
+        <select id="team-members" name="team-member" required size="4">
+          {% for member in members %}
+          <option value="{{ member }}">{{ member }}</option>
+          {% endfor %}
+        </select><br />
+
+        <button type="button" onclick="addUser()">Add User</button><br /><br />
+
+        <h2>Selected Team Members</h2>
+        <div id="selected-users"></div>
+
+        <input type="submit" value="Submit" />
+      </form>
+    </section>
+  </main>
+</body>
+
+</html>

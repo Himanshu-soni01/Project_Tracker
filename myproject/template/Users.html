@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>USER</title>
+	<link rel="stylesheet" href="\static\style.css">
+	<link rel="stylesheet" href="\static\cs.css">
+</head>
+<body>
+	<header>
+		<h1>USER_X</h1>
+		<nav>
+			<ul>
+				<li><a href="/userlogin">Login</a></li>
+				<li><a href="/usersignup">SignUP</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+        <section>
+            <h2>My Projects</h2>
+            <ul>
+                {% for project in user.projects.all %}
+                    <li>{{ project.project_name }}</li>
+                {% empty %}
+                    <li>No projects available</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

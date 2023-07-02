@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>USER</title>
+    <link rel="stylesheet" href="\static\style.css" />
+    <link rel="stylesheet" href="\static\cs.css" />
+  </head>
+  <body>
+    <header>
+      <h1>{{username}}</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Dashboard</h2>
+
+        <h3>Available Projects</h3>
+        <ul>
+          {% for detail in details %}
+          <h3><li>Project Name: {{ detail.0 }}</li></h3>
+          <li>Description: {{ detail.1 }}</li>
+          <li>Start Date: <span class="date">{{ detail.2 }}</span></li>
+          <li>End Date: <span class="date">{{ detail.3 }}</span></li>
+          <li>Resource: <a href="{% url 'download_file' detail.4 %}" download>Download</a>
+          </li>
+          <br><br>
+          {% endfor %}
+
+          <br /><br />
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
